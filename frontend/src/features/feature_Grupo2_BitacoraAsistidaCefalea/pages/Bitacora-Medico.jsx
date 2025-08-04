@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header.jsx';
-import Tabla from '../components/Tabla.jsx';
+import Tabla from '../components/Table.jsx';
 import ModalFiltro from '../components/ModalFiltro.jsx';
 import { parseApiResponse, getErrorMessageMedico, fetchPacienteInfo, getAuthHeaders } from '../utils/apiUtils.js';
 import { transformEpisodioMedico, COLUMNAS_EPISODIOS_MEDICO } from '../utils/episodioUtils.js';

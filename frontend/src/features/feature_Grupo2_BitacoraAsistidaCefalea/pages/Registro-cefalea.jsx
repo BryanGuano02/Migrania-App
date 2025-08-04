@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header.jsx';
@@ -273,44 +272,48 @@ export default function IngresarCefalea() {
                                 </select>
                             </div>
 
-                            <div className={styles.formField}>
-                                <label htmlFor="sintomas_aura" className={styles.labelStyled}>Síntomas del aura</label>
-                                <select
-                                    id="sintomas_aura"
-                                    name="sintomas_aura"
-                                    value={formData.sintomas_aura}
-                                    onChange={handleInputChange}
-                                    className={`${styles.selectDefault} ${formData.sintomas_aura === '' ? styles.selectPlaceholder : ''}`}
-                                >
-                                    <option value="" disabled>Seleccione una opción</option>
-                                    <option value="Ninguno">Ninguno</option>
-                                    <option value="Visuales">Visuales</option>
-                                    <option value="Sensitivos">Sensitivos</option>
-                                    <option value="De habla o lenguaje">De habla o lenguaje</option>
-                                    <option value="Motores">Motores</option>
-                                    <option value="Troncoencefálicos">Troncoencefálicos</option>
-                                    <option value="Retinianos">Retinianos</option>
-                                    <option value="Visuales, Sensitivos">Visuales, Sensitivos</option>
-                                </select>
-                            </div>
+                            {formData.presencia_aura === 'Sí' && (
+                                <>
+                                    <div className={styles.formField}>
+                                        <label htmlFor="sintomas_aura" className={styles.labelStyled}>Síntomas del aura</label>
+                                        <select
+                                            id="sintomas_aura"
+                                            name="sintomas_aura"
+                                            value={formData.sintomas_aura}
+                                            onChange={handleInputChange}
+                                            className={`${styles.selectDefault} ${formData.sintomas_aura === '' ? styles.selectPlaceholder : ''}`}
+                                        >
+                                            <option value="" disabled>Seleccione una opción</option>
+                                            <option value="Ninguno">Ninguno</option>
+                                            <option value="Visuales">Visuales</option>
+                                            <option value="Sensitivos">Sensitivos</option>
+                                            <option value="De habla o lenguaje">De habla o lenguaje</option>
+                                            <option value="Motores">Motores</option>
+                                            <option value="Troncoencefálicos">Troncoencefálicos</option>
+                                            <option value="Retinianos">Retinianos</option>
+                                            <option value="Visuales, Sensitivos">Visuales, Sensitivos</option>
+                                        </select>
+                                    </div>
 
-                            <div className={styles.formField}>
-                                <label htmlFor="duracion_aura_minutos" className={styles.labelStyled}>Duración del aura (min)</label>
-                                <input
-                                    type="number"
-                                    id="duracion_aura_minutos"
-                                    name="duracion_aura_minutos"
-                                    placeholder="Ej: 30"
-                                    min="0"
-                                    max="120"
-                                    value={formData.duracion_aura_minutos}
-                                    onChange={handleInputChange}
-                                    className={styles.inputDefault}
-                                />
-                            </div>
+                                    <div className={styles.formField}>
+                                        <label htmlFor="duracion_aura_minutos" className={styles.labelStyled}>Duración del aura (min)</label>
+                                        <input
+                                            type="number"
+                                            id="duracion_aura_minutos"
+                                            name="duracion_aura_minutos"
+                                            placeholder="Ej: 30"
+                                            min="0"
+                                            max="120"
+                                            value={formData.duracion_aura_minutos}
+                                            onChange={handleInputChange}
+                                            className={styles.inputDefault}
+                                        />
+                                    </div>
+                                </>
+                            )}
 
                             {/* Campos específicos para mujeres */}
-                            {userInfo?.genero === 'F' && (
+                            {userInfo?.genero !== 'M' && userInfo?.genero === 'F' && (
                                 <>
                                     <div className={styles.formField}>
                                         <label htmlFor="en_menstruacion" className={styles.labelStyled}>En menstruación</label>

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header.jsx';
-import Tabla from '../components/Tabla.jsx';
+import Tabla from '../components/Table.jsx';
 import { parseApiResponse, getErrorMessage, getApiUrl, getAuthHeaders } from '../utils/apiUtils.js';
 import { transformEpisodio, COLUMNAS_EPISODIOS } from '../utils/episodioUtils.js';
 import { EPISODIOS_ENDPOINT } from '../utils/constants.js';
